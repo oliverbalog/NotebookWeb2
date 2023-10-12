@@ -38,3 +38,5 @@ class RouteCollection implements \Countable
 		return null;
 	}
 }
+
+?>
