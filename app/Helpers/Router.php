@@ -10,15 +10,11 @@ class Router
 		$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 		$id = (int)filter_var($uri, FILTER_SANITIZE_NUMBER_INT);
-		/* $routeName = preg_replace('/[0-9]+/', '{id}', $uri); */
-
-		
-
-		$routeName = str_replace('/NotebookWeb2/public/','/',$uri);
+		$routeName = preg_replace('/[0-9]+/', '{id}', $uri);
 
 		if($route = $routes->get($routeName)) { // Route instance
-			
-			return $route->handle($routes, $method, $id);
+			$route->handle($routes, $method, $id);
+			return;
 		}
 
 		return abort();

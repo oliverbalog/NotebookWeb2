@@ -3,7 +3,7 @@
         'name' => 'oliverbalog/notebookweb2',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '67ca02ba7f37740724ee53d5b70f51c6c7c6e2bf',
+        'reference' => '62c4d4460d6e35b6a9c6626c44a7dd384df36c16',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'oliverbalog/notebookweb2' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '67ca02ba7f37740724ee53d5b70f51c6c7c6e2bf',
+            'reference' => '62c4d4460d6e35b6a9c6626c44a7dd384df36c16',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
