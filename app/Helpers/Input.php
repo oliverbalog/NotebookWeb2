@@ -7,12 +7,7 @@ use Exception;
 class Input{
     static $errors = true;
 
-	/**
-	 * @param $arr
-	 * @param $on
-	 * @return void
-	 * @throws Exception
-	 */
+
 	public static function check($arr, $on = false)
 	{
 		if($on === false) {
@@ -25,12 +20,7 @@ class Input{
 		}
 	}
 
-	/**
-	 * @param $field
-	 * @param $value
-	 * @return mixed
-	 * @throws Exception
-	 */
+
 	public static function required($field, $value)
 	{
 		if(empty($value)) {
@@ -40,21 +30,13 @@ class Input{
 		return $value;
 	}
 
-	/**
-	 * @param $field
-	 * @param $value
-	 * @return mixed
-	 */
+
 	public static function nullable($field, $value)
 	{
 		return $value;
 	}
 
-	/**
-	 * @param $value
-	 * @return false|mixed
-	 * @throws Exception
-	 */
+
 	public static function int($field, $value)
 	{
 		$value = filter_var($value, FILTER_VALIDATE_INT);
@@ -65,11 +47,6 @@ class Input{
 		return trim($value);
 	}
 
-	/**
-	 * @param $value
-	 * @return false|mixed
-	 * @throws Exception
-	 */
 	public static function float($field, $value)
 	{
 		$value = filter_var($value, FILTER_VALIDATE_FLOAT);
@@ -80,11 +57,7 @@ class Input{
 		return trim($value);
 	}
 
-	/**
-	 * @param $value
-	 * @return string
-	 * @throws Exception
-	 */
+
 	public static function string($field, $value)
 	{
 		if(!is_string($value)) {
@@ -94,10 +67,7 @@ class Input{
 		return trim(htmlspecialchars($value));
 	}
 
-	/**
-	 * @param $value
-	 * @return mixed
-	 */
+
 	public static function bool($field, $value)
 	{
 		$value = filter_var($value, FILTER_VALIDATE_BOOLEAN);
@@ -108,11 +78,7 @@ class Input{
 		return $value;
 	}
 
-	/**
-	 * @param $value
-	 * @return false|mixed
-	 * @throws Exception
-	 */
+
 	public static function email($field, $value)
 	{
 		$value = filter_var($value, FILTER_VALIDATE_EMAIL);
@@ -123,11 +89,6 @@ class Input{
 		return trim($value);
 	}
 
-	/**
-	 * @param $value
-	 * @return false|mixed
-	 * @throws Exception
-	 */
 	public static function url($field, $value)
 	{
 		$value = filter_var($value, FILTER_VALIDATE_URL);
@@ -138,12 +99,6 @@ class Input{
 		return $value;
 	}
 
-	/**
-	 * @param $fieldname
-	 * @param $value
-	 * @param $minimum
-	 * @return void
-	 */
 	public static function tooshort($fieldname, $value, $minimum)
 	{
 		$length = strlen($value);
@@ -152,12 +107,6 @@ class Input{
 		}
 	}
 
-	/**
-	 * @param $fieldname
-	 * @param $value
-	 * @param $maximum
-	 * @return void
-	 */
 	public static function toolong($fieldname, $value, $maximum)
 	{
 		$length = strlen($value);
@@ -166,11 +115,6 @@ class Input{
 		}
 	}
 
-	/**
-	 * @param $fieldname
-	 * @param $value
-	 * @return void
-	 */
 	public static function badcontent($fieldname, $value)
 	{
 		if(!preg_match("/^[a-zA-Z0-9 '-]*$/", $value)) {
@@ -178,12 +122,6 @@ class Input{
 		}
 	}
 
-	/**
-	 * @param $error
-	 * @param $errorCode
-	 * @return void
-	 * @throws Exception
-	 */
 	public static function throwError($error = 'Error In Processing', $errorCode = 0)
 	{
 		if(self::$errors === true) {
