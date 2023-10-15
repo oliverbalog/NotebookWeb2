@@ -10,7 +10,8 @@ body {
 
 header {
   box-shadow: 0 0 5px -2px;
-  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 
   background-color: var(--main-bg-color);
   color: var(--main-color);
@@ -57,4 +58,40 @@ button {
 section{
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+.app-title-row {
+  background-color: grey;
+  margin-top: none;
+  color: black;
+  border: 1px solid;
+}
+
+.user-menu{
+  border-left: 1px solid black;
+
+  
+}
+
+.user-menu > ul, li{
+  display: inline;
+  margin-left: 0.5em;
+}
+
+.user-menu > ul, li, a{
+  list-style: none;
+}
+
+.user-menu>ul>li>a{
+  text-decoration: none;
+  color: black;
+}
+
+input[type=email], input[type=password] {
+  background-color: var(--main-bg-color);
+}
+
+input[type=email]:active, input[type=password]:active, input[type=email]:focus, input[type=password]:focus {
+  background-color: var(--main-bg-color) !important;
+  color: var(--main-color);
 }

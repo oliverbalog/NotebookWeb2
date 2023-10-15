@@ -103,7 +103,6 @@ class Input{
 	{
 		$length = strlen($value);
 		if($length < $minimum) {
-			// do error handling
 		}
 	}
 
@@ -111,14 +110,12 @@ class Input{
 	{
 		$length = strlen($value);
 		if($length > $maximum) {
-			// do error handling
 		}
 	}
 
 	public static function badcontent($fieldname, $value)
 	{
 		if(!preg_match("/^[a-zA-Z0-9 '-]*$/", $value)) {
-			// do error handling
 		}
 	}
 
