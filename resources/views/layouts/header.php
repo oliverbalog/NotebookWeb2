@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?php echo SITE_NAME; ?>
+        <?php
+
+use App\Helpers\Auth;
+
+ echo SITE_NAME; ?>
     </title>
 
     <link rel="stylesheet" href="/css/app.css">
@@ -19,9 +23,29 @@
 <body>
 
     <header>
-        <div class="row">
-            <div class="col-xs-12 center-block text-center app-title">
+        <div class="row app-title-row">
+            <div class="col-9 center-block text-center app-title">
                 <?php echo SITE_NAME; ?>
+            </div>
+            <div class="col-3 user-menu">
+                <ul>
+                <?php if(!auth()->check()) : ?>
+                    <li>
+                        <a href="<?php echo route($routes->get('login')) ?>">
+                            Belépés
+                        </a>
+                    </li>
+                    <?php else : ?>
+                    <li>
+                        <a href="<?php echo route($routes->get('logout')) ?>">
+                            Kilépés |
+                        </a>
+                    </li>
+                    <li>
+                        <?php echo Auth()->user()->name ?>
+                    </li>
+                    <?php endif; ?>
+                </ul>
             </div>
         </div>
         <div class="row">
@@ -32,8 +56,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
+                        <li class="nav-item <?php echo isRoute($routes->get('home')) ? 'active' : '' ?>">
+                            <a class="nav-link" href="<?php echo route($routes->get('home')) ?>">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Notebooks</a>
@@ -41,6 +65,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>
                         </li>
+
                     </ul>
                 </div>
             </nav>
