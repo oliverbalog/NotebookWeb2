@@ -35,6 +35,11 @@ use App\Helpers\Auth;
                             Belépés
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo route($routes->get('register')) ?>">
+                            Regisztráció
+                        </a>
+                    </li>
                     <?php else : ?>
                     <li>
                         <a href="<?php echo route($routes->get('logout')) ?>">

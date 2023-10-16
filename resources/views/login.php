@@ -29,7 +29,7 @@ include(APP_ROOT . "/resources/views/layouts/header.php");
 
             <!-- Register buttons -->
             <div class="text-center">
-                <p>Még nincs felhasználója? <a href="#!">Regisztráljon itt!</a></p>
+                <p>Még nincs felhasználója? <a href="<?php echo route($routes->get('register')) ?>">Regisztráljon itt!</a></p>
             </div>
         </form>
         </div>
