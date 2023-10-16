@@ -14,7 +14,7 @@ class AuthenticateController extends Controller
 	{
 		parent::__construct($routes);
 	}
-
+ 
 	public function index()
 	{
 		if(Auth::check()) {
