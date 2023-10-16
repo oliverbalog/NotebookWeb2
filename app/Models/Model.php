@@ -21,7 +21,7 @@ abstract class Model implements ModelInterface, CrudInterface
 	public function __construct()
 	{
 		if(!$this->table) {
-			throw new Exception("Model table is not set");
+			throw new Exception("A model tábla nincs beállítva!");
 		}
 
 		if (static::$db === null) {
@@ -79,7 +79,7 @@ abstract class Model implements ModelInterface, CrudInterface
 			->fetch($this->fetchMode);
 	}
 
-	public function findOrFail($idOrKey, $value = null)
+	public function tryFind($idOrKey, $value = null)
 	{
 		$data = $this->find($idOrKey, $value);
 
@@ -108,7 +108,7 @@ abstract class Model implements ModelInterface, CrudInterface
 
 	public function update(int $id, array $data): int
 	{
-		$this->findOrFail($id);
+		$this->tryFind($id);
 
 		$set = [];
 		$fields = array_keys($data);
@@ -132,7 +132,7 @@ abstract class Model implements ModelInterface, CrudInterface
 
 	public function delete(int $id) : bool
 	{
-		$this->findOrFail($id);
+		$this->tryFind($id);
 
 		$stmt = $this->db()
 			->prepare("
@@ -152,9 +152,7 @@ abstract class Model implements ModelInterface, CrudInterface
 	{
 		if(!arrays_equals($this->fillable, $fields)) {
 			throw new Exception(
-				"Fillable model fields are not same as create/update SQL fields.
-				Trying to fill: " . implode(', ', $fields) . "
-				(Fillable fields: " . implode(', ', $this->fillable) . ")."
+				"A kitölthető mezők nem egyeznek a create/update mezőkkel!"
 			);
 		}
 	}

@@ -2,6 +2,7 @@
   background-color: rgb(73, 69, 69);
   --main-bg-color: rgb(73, 69, 69);
   --main-color: rgb(219, 202, 202);
+  --alt-bg-color: rgb(47, 45, 45);
 }
 
 body {
@@ -29,6 +30,25 @@ main {
   color: var(--main-color);
 }
 
+th, td{
+  color: var(--main-color);
+  
+}
+
+
+td>a{
+  color: var(--main-color);
+}
+
+table{
+  margin: 1em;
+  box-shadow: 0 0 10px 1px var(--main-color);
+  border-radius: 10px;
+}
+
+tr:nth-child(odd) {background: var(--alt-color)}
+
+
 .note-img{
   max-width: 100%;
   border-radius: 10px;
@@ -52,7 +72,7 @@ button {
 }
 
 .active{
-    border-bottom: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color) !important;
 }
 
 section{
@@ -65,6 +85,10 @@ section{
   margin-top: none;
   color: black;
   border: 1px solid;
+}
+
+.link{
+  color: var(--main-color);
 }
 
 .user-menu{
@@ -89,16 +113,30 @@ section{
 
 input[type=text],
 input[type=email],
+input[type=number],
+select,
 input[type=password] {
   background-color: var(--main-bg-color);
+  color: var(--main-color);
 }
 
 input[type=email]:active, 
 input[type=password]:active, 
 input[type=text]:active, 
+input[type=number]:active, 
 input[type=email]:focus, 
+input[type=number]:focus, 
 input[type=text]:focus, 
 input[type=password]:focus {
   background-color: var(--main-bg-color) !important;
   color: var(--main-color);
+}
+
+input[type=email]:disabled, 
+input[type=password]:disabled, 
+input[type=text]:disabled, 
+input[type=number]:disabled,
+select:disabled{
+  color: var(--main-color);
+  background-color: black;
 }

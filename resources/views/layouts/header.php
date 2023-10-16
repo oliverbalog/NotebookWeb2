@@ -5,11 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?php
-
-use App\Helpers\Auth;
-
- echo SITE_NAME; ?>
+        <?php echo SITE_NAME; ?>
     </title>
 
     <link rel="stylesheet" href="/css/app.css">
@@ -64,11 +60,8 @@ use App\Helpers\Auth;
                         <li class="nav-item <?php echo isRoute($routes->get('home')) ? 'active' : '' ?>">
                             <a class="nav-link" href="<?php echo route($routes->get('home')) ?>">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Notebooks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                        <li class="nav-item <?php echo isRoute($routes->get('notebooks.index')) ? 'active' : '' ?>">
+                            <a class="nav-link" href="<?php echo route($routes->get('notebooks.index')) ?>">Notebookok</a>
                         </li>
 
                     </ul>

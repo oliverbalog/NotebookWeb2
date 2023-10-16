@@ -7,7 +7,7 @@ interface CrudInterface
 
 	public function find($idOrKey, $value = null);
 
-	public function findOrFail($idOrKey, $value = null);
+	public function tryFind($idOrKey, $value = null);
 
 	public function insert(array $data): int;
 

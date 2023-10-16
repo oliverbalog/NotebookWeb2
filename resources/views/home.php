@@ -13,20 +13,22 @@ include(APP_ROOT . "/resources/views/layouts/header.php");
                 megfelelő
                 gépet?
             </p>
+            <p>
+                Amennyiben rendszeresen magunkkal szeretnénk vinni az iskolába vagy a munkahelyünkre, válasszunk a
+                kisebb és
+                könnyebb 11”-os modellek közül, és ne feledkezzünk meg a notebook táskáról sem, ami lehet egy notebook
+                hátizsák
+                vagy tok is, hogy biztonságosan szállíthassuk. Tanuláshoz érdemes elgondolkozni egy még könnyebb és
+                praktikusabb
+                tablet vásárlásán is, vagy válasszunk egy notebook-tablet hibridet.
+            </p>
         </div>
-        <div class="col-4">
+        <div class="col-2">
             <img class="note-img mt-2" src="./images/notebook.jpg" />
         </div>
     </div>
 
-    <p>
-        Amennyiben rendszeresen magunkkal szeretnénk vinni az iskolába vagy a munkahelyünkre, válasszunk a kisebb és
-        könnyebb 11”-os modellek közül, és ne feledkezzünk meg a notebook táskáról sem, ami lehet egy notebook
-        hátizsák
-        vagy tok is, hogy biztonságosan szállíthassuk. Tanuláshoz érdemes elgondolkozni egy még könnyebb és
-        praktikusabb
-        tablet vásárlásán is, vagy válasszunk egy notebook-tablet hibridet.
-    </p>
+
     <p>
         Fontos megnézni, hogy a notebook operációs rendszerrel rendelkezik e, mert nem mindegyik modell mellé jár,
         és a
