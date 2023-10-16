@@ -48,4 +48,4 @@ class RegisterController extends Controller
 
 		return redirect(route($this->routes->get('login')), 'Sikeres regisztráció!');
 	}
-}
+} 
