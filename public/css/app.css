@@ -87,11 +87,18 @@ section{
   color: black;
 }
 
-input[type=email], input[type=password] {
+input[type=text],
+input[type=email],
+input[type=password] {
   background-color: var(--main-bg-color);
 }
 
-input[type=email]:active, input[type=password]:active, input[type=email]:focus, input[type=password]:focus {
+input[type=email]:active, 
+input[type=password]:active, 
+input[type=text]:active, 
+input[type=email]:focus, 
+input[type=text]:focus, 
+input[type=password]:focus {
   background-color: var(--main-bg-color) !important;
   color: var(--main-color);
 }
