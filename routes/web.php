@@ -2,6 +2,7 @@
 
 use App\Controllers\AuthenticateController;
 use App\Controllers\HomeController;
+use App\Controllers\NewsController;
 use App\Helpers\Route;
 use App\Helpers\RouteCollection; 
 use App\Controllers\RegisterController;
@@ -26,4 +27,8 @@ $routes->add('notebooks.show', Route::get('/notebooks/{id}', [NotebookController
 $routes->add('notebooks.edit', Route::get('/notebooks/{id}/edit', [NotebookController::class, 'edit']));
 $routes->add('notebooks.update', Route::post('/notebooks/{id}/update', [NotebookController::class, 'update']));
 $routes->add('notebooks.delete', Route::get('/notebooks/{id}/delete', [NotebookController::class, 'delete']));
+
+$routes->add('news.index', Route::get('/news', [NewsController::class, 'index']));
+$routes->add('news.rate', Route::post('/news/{id}/rate', [NewsController::class, 'rate']));
+$routes->add('news.store', Route::post('/news/store', [NewsController::class, 'store']));
 ?>

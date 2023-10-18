@@ -63,7 +63,11 @@
                         <li class="nav-item <?php echo isRoute($routes->get('notebooks.index')) ? 'active' : '' ?>">
                             <a class="nav-link" href="<?php echo route($routes->get('notebooks.index')) ?>">Notebookok</a>
                         </li>
-
+                        <?php if(auth()->check()) : ?>
+                        <li class="nav-item <?php echo isRoute($routes->get('news.index')) ? 'active' : '' ?>">
+                            <a class="nav-link" href="<?php echo route($routes->get('news.index')) ?>">Hírek</a>
+                        </li>
+                            <?php else : endif; ?>
                     </ul>
                 </div>
             </nav>
