@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Models;
 
 use App\Interfaces\CrudInterface;
@@ -20,7 +20,7 @@ abstract class Model implements ModelInterface, CrudInterface
 
 	public function __construct()
 	{
-		if(!$this->table) {
+		if (!$this->table) {
 			throw new Exception("A model tábla nincs beállítva!");
 		}
 
@@ -45,15 +45,16 @@ abstract class Model implements ModelInterface, CrudInterface
 	public function raw(string $query, $fetch = 'fetchAll')
 	{
 		return $this->db()
-			->query($query)
+					->query($query)
 			->{$fetch}($this->fetchMode);
 	}
+
 
 	public function getAll($joins = null): iterable
 	{
 		$query = "SELECT * FROM {$this->table}";
 
-		if($joins) {
+		if ($joins) {
 			$query .= " " . $joins;
 		}
 
@@ -66,11 +67,11 @@ abstract class Model implements ModelInterface, CrudInterface
 	{
 		$key = 'id';
 
-		if(is_int($idOrKey) && !$value) {
+		if (is_int($idOrKey) && !$value) {
 			$value = $idOrKey;
 		}
 
-		if(is_string($idOrKey) && $value) {
+		if (is_string($idOrKey) && $value) {
 			$key = $idOrKey;
 		}
 
@@ -90,20 +91,28 @@ abstract class Model implements ModelInterface, CrudInterface
 
 	public function insert(array $data): int
 	{
-		$marks = array_fill(0, count($data), '?');
-		$fields = array_keys($data);
-		$this->checkFillableFields($fields);
-		$values = array_values($data);
+		try {
+			$marks = array_fill(0, count($data), '?');
+			$fields = array_keys($data);
+			$this->checkFillableFields($fields);
+			$values = array_values($data);
 
-		$stmt = $this->db()
-			->prepare("
+
+			$stmt = $this->db()
+				->prepare("
 				INSERT INTO {$this->table} (" . implode(",", $fields) . ")
 				VALUES(" . implode(",", $marks) . ")
 			");
 
-		$stmt->execute($values);
 
-		return $this->db()->lastInsertId();
+			$result = $stmt->execute($values);
+			echo json_encode($result);
+
+		} catch (Exception $ex) {
+			print_r($ex);
+		}
+		$inserted = $this->db()->lastInsertId();
+		return $inserted;
 	}
 
 	public function update(int $id, array $data): int
@@ -115,7 +124,7 @@ abstract class Model implements ModelInterface, CrudInterface
 
 		$this->checkFillableFields($fields);
 
-		foreach($fields as $field) {
+		foreach ($fields as $field) {
 			$set[] = "$field = :$field";
 		}
 
@@ -130,7 +139,7 @@ abstract class Model implements ModelInterface, CrudInterface
 		return $this->db()->lastInsertId();
 	}
 
-	public function delete(int $id) : bool
+	public function delete(int $id): bool
 	{
 		$this->tryFind($id);
 
@@ -148,9 +157,9 @@ abstract class Model implements ModelInterface, CrudInterface
 		return static::$db;
 	}
 
-	private function checkFillableFields(array $fields) : void
+	private function checkFillableFields(array $fields): void
 	{
-		if(!arrays_equals($this->fillable, $fields)) {
+		if (!arrays_equals($this->fillable, $fields)) {
 			throw new Exception(
 				"A kitölthető mezők nem egyeznek a create/update mezőkkel!"
 			);

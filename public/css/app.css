@@ -140,3 +140,31 @@ select:disabled{
   color: var(--main-color);
   background-color: black;
 }
+
+.new{
+  max-width: 90vw !important;
+  margin-bottom: 5em;
+  border-bottom: 3px solid var(--alt-bg-color);
+  padding-bottom: 0.5em;
+}
+
+.meta-info{
+  font-size: 13px;
+}
+
+.news-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ratings{
+  box-shadow: 0 0 5px -1px black;
+  padding-bottom: 0.5em;
+  padding-right: 2em !important;
+  margin-top: 1em !important;
+}
+
+textarea{
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
