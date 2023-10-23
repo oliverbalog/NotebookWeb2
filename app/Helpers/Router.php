@@ -13,7 +13,6 @@ class Router
 		$routeName = preg_replace('/[0-9]+/', '{id}', $uri);
 		
 		if($route = $routes->get($routeName)) { 
-			echo $routeName . "<br/>" . $method . "<br/>" . $id;
 			$route->handle($routes, $method, $id);
 			return;
 		}

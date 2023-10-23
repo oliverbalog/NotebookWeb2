@@ -7,6 +7,7 @@ use App\Helpers\Route;
 use App\Helpers\RouteCollection; 
 use App\Controllers\RegisterController;
 use App\Controllers\NotebookController;
+use App\Controllers\MNBController;
 
 $routes = new RouteCollection();
 
@@ -31,4 +32,8 @@ $routes->add('notebooks.delete', Route::get('/notebooks/{id}/delete', [NotebookC
 $routes->add('news.index', Route::get('/news', [NewsController::class, 'index']));
 $routes->add('news.rate', Route::post('/news/{id}/rate', [NewsController::class, 'rate']));
 $routes->add('news.store', Route::post('/news/store', [NewsController::class, 'store']));
+
+$routes->add('mnb', Route::get('/mnb', [MNBController::class, 'index']));
+$routes->add('mnb.post', Route::post('/mnb/post', [MNBController::class, 'GetCurrentRates']));
+$routes->add('mnb.rates', Route::post('/mnb/rates', [MNBController::class, 'GetExchangeRates']));
 ?>

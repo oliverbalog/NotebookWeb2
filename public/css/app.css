@@ -42,7 +42,7 @@ td>a{
 
 table{
   margin: 1em;
-  box-shadow: 0 0 10px 1px var(--main-color);
+  box-shadow: 0 0 10px 1px;
   border-radius: 10px;
 }
 
@@ -66,9 +66,10 @@ tr:nth-child(odd) {background: var(--alt-color)}
 }
 
 button {
-  background-color: var(--main-bg-color);
+  background-color: var(--alt-bg-color);
   color: var(--main-color);
-  border: none;
+  border: 1px solid var(--alt-bg-color) !important;
+border-radius: 5px !important;
 }
 
 .active{

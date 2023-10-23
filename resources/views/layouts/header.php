@@ -13,7 +13,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
+    <script src="/scripts/mnb.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -25,26 +27,26 @@
             </div>
             <div class="col-3 user-menu">
                 <ul>
-                <?php if(!auth()->check()) : ?>
-                    <li>
-                        <a href="<?php echo route($routes->get('login')) ?>">
-                            Belépés
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo route($routes->get('register')) ?>">
-                            Regisztráció
-                        </a>
-                    </li>
-                    <?php else : ?>
-                    <li>
-                        <a href="<?php echo route($routes->get('logout')) ?>">
-                            Kilépés |
-                        </a>
-                    </li>
-                    <li>
-                        <?php echo Auth()->user()->name ?>
-                    </li>
+                    <?php if (!auth()->check()): ?>
+                        <li>
+                            <a href="<?php echo route($routes->get('login')) ?>">
+                                Belépés
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo route($routes->get('register')) ?>">
+                                Regisztráció
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <a href="<?php echo route($routes->get('logout')) ?>">
+                                Kilépés |
+                            </a>
+                        </li>
+                        <li>
+                            <?php echo Auth()->user()->name ?>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -61,13 +63,17 @@
                             <a class="nav-link" href="<?php echo route($routes->get('home')) ?>">Home</a>
                         </li>
                         <li class="nav-item <?php echo isRoute($routes->get('notebooks.index')) ? 'active' : '' ?>">
-                            <a class="nav-link" href="<?php echo route($routes->get('notebooks.index')) ?>">Notebookok</a>
+                            <a class="nav-link"
+                                href="<?php echo route($routes->get('notebooks.index')) ?>">Notebookok</a>
                         </li>
-                        <?php if(auth()->check()) : ?>
-                        <li class="nav-item <?php echo isRoute($routes->get('news.index')) ? 'active' : '' ?>">
-                            <a class="nav-link" href="<?php echo route($routes->get('news.index')) ?>">Hírek</a>
+                        <li class="nav-item <?php echo isRoute($routes->get('mnb')) ? 'active' : '' ?>">
+                            <a class="nav-link" href="<?php echo route($routes->get('mnb')) ?>">Árfolyamok</a>
                         </li>
-                            <?php else : endif; ?>
+                        <?php if (auth()->check()): ?>
+                            <li class="nav-item <?php echo isRoute($routes->get('news.index')) ? 'active' : '' ?>">
+                                <a class="nav-link" href="<?php echo route($routes->get('news.index')) ?>">Hírek</a>
+                            </li>
+                        <?php else: endif; ?>
                     </ul>
                 </div>
             </nav>
