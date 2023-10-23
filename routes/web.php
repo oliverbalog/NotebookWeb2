@@ -28,11 +28,11 @@ $routes->add('notebooks.show', Route::get('/notebooks/{id}', [NotebookController
 $routes->add('notebooks.edit', Route::get('/notebooks/{id}/edit', [NotebookController::class, 'edit']));
 $routes->add('notebooks.update', Route::post('/notebooks/{id}/update', [NotebookController::class, 'update']));
 $routes->add('notebooks.delete', Route::get('/notebooks/{id}/delete', [NotebookController::class, 'delete']));
-
+//Hírek
 $routes->add('news.index', Route::get('/news', [NewsController::class, 'index']));
 $routes->add('news.rate', Route::post('/news/{id}/rate', [NewsController::class, 'rate']));
 $routes->add('news.store', Route::post('/news/store', [NewsController::class, 'store']));
-
+//MNB
 $routes->add('mnb', Route::get('/mnb', [MNBController::class, 'index']));
 $routes->add('mnb.post', Route::post('/mnb/post', [MNBController::class, 'GetCurrentRates']));
 $routes->add('mnb.rates', Route::post('/mnb/rates', [MNBController::class, 'GetExchangeRates']));
