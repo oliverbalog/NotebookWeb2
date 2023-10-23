@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost
--- Létrehozás ideje: 2023. Okt 17. 09:08
+-- Létrehozás ideje: 2023. Okt 23. 19:16
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -35,6 +35,14 @@ CREATE TABLE `news` (
   `created_by` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- A tábla adatainak kiíratása `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `created_at`, `created_by`) VALUES
+(1, 'teszt cím', 'Ez egy hosszú teszt tartalom', '2023-10-17 00:00:00', 1),
+(2, 'asdfdsaf', '                        asdfadsfadf', '2023-10-18 00:00:00', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +53,20 @@ CREATE TABLE `news_rating` (
   `id` int(10) NOT NULL,
   `news_id` int(10) NOT NULL,
   `rating` int(1) NOT NULL,
-  `rated_by` int(10) NOT NULL
+  `rated_by` int(10) NOT NULL,
+  `text_rate` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `news_rating`
+--
+
+INSERT INTO `news_rating` (`id`, `news_id`, `rating`, `rated_by`, `text_rate`) VALUES
+(1, 1, 4, 1, 'revevervw'),
+(2, 1, 5, 1, 'rklbengwbrljqhkghjki1bkbkélbkreg'),
+(3, 1, 1, 1, 'sdfggfds'),
+(4, 1, 3, 3, 'Ez egy nagyon jó hír!'),
+(5, 2, 4, 3, '');
 
 -- --------------------------------------------------------
 
@@ -429,7 +449,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (1, 'Admin', 'admin@admin.com', '$2y$10$7VpBgrSgogoMtUmiEq.DYuJ3siaJKXW20CKfKsnVfjlRyO2hyAnce'),
-(2, 'Balog Olivér', 'aspera@gmail.com', '$2y$10$QQKQhJnsB1L75j9MNLES2eAbDX36dPtjWM1jvYZdamZEow7VEMyXe');
+(2, 'Balog Olivér', 'aspera@gmail.com', '$2y$10$QQKQhJnsB1L75j9MNLES2eAbDX36dPtjWM1jvYZdamZEow7VEMyXe'),
+(3, 'Balog Olivér', 'test@test.test', '$2y$10$aBqgDUF.VksOCKYcF0UMS.ZQjQLgOMS3dk6X9AFk5kQb7CSEnhG6G');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -479,13 +500,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `news_rating`
 --
 ALTER TABLE `news_rating`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `notebooks`
@@ -509,7 +530,7 @@ ALTER TABLE `processors`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
